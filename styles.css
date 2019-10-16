@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("./train.jpg");
+
+}
+
+#header{
+    background-image: url("./train.jpg");
+    height: 150px;
+    border: solid 1px green;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+form{
+    /* border: solid 1px green; */
+    background-color:white;
+    margin: 10px 0;
+    width:100%;
+    height: auto;
+}
+
+/* #train-schedule, .table{
+    margin-top:20px;
+    width:100%;
+} */
+
+table{
+    background-color:white;
+}
+
+#container{
+    max-width: 1000px;
+    margin: auto;
+    
+}
+.container{
+    margin-top:15px;
+}
+
+
+h3{
+    color:green;
+    width:100%;
+    /* border: solid 1px green; */
+    margin-bottom: 0px;
+    margin-top:10px;
+}

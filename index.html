@@ -1,46 +1,106 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <title>Train Time</title>
 </head>
 <body>
-<header>
-<div class="wrapper1">
-<h1 id="Name">Anthony Martin</h1>
-    <ul>
-    <li class="brdr"><a href="./index.html">About</a></li>
-    <li class="brdr"><a href="./portfolio.html">Portfolio</a></li>
-    <li><a href="./contact.html">Contact</a></li>
+<div id="container">
+    <div id="header"><h1>Schedule</h1></div>
+    <div class="container">
+    <table class="table" id="train-schedule">
+            <thead class="thead-light">
+                    <h3>Current Train Schedule</h3>
+              <tr>
+                <th scope="col">Train Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Frequency (min)</th>
+                <th scope="col">Next Arrival</th>
+                <th scope="col">Minutes Away</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="container">
     
-    </ul>
+          <form>
+                <h3 >Add Train </h3>
+                <div class="form-group">
+                    <label for="train-name">Train Name</label><br>                  
+                    <input type="text" class="form-control" id="train-name" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination</label><br>
+                    <input type="text" class="form-control" id="destination"><br>                  
+                </div>
+                <div class="form-group">
+                    <label for="first-train-time">First Train Time (HH:mm-Military Time)</label><br>
+                    <input type="text" class="form-control" id="first-train-time"><br>                  
+                </div>
+                <div class="form-group">
+                    <label for="frequency">Frequency (min)</label><br>
+                    <input type="text" class="form-control" id="frequency"><br>                  
+                </div>
+                <button type="submit" class="btn btn-primary" id="add-button">Submit</button>
+              </form>
+    </div>
+    
+              
+         
+        
+  
+             
+        
+    <!-- <form>
+        <h3 >Add Train </h3>
+        
+        <label for="destination">Destination</label><br>
+        <input type="text" id="destination" name="destination"><br>
+        <label for="first-train-time">First Train Time (HH:mm-Military Time)</label><br>
+        <input type="text" id="first-train-time" name="first-train-time"><br>
+        <label for="Frequency">Frequency (min)</label><br>
+        <input type="text" id="frequency" name="frequency"><br>
+        <input type="submit" id="add-button">
+    
+
+    </form> -->
+
+
+
 </div>
-</header>
-
-<div class="wrapper">
-    <h1 class="header1">About Me</h1>
-<div class="wrapper2">
-    <img src="assets/images/pimage.jpg" height="200px" width="200px">
-    <p> My name is Anthony Martin.  I'm an aspiring web developer and, although I'm new to the trade, a penchant for learning and hardwork is a part of my code.  
-        Everyday I am learning more about the subject and everyday I am practicing to refine my skills.  Soon I'll master HTML, CSS, and Javascript.  Maybe I'll use 
-        that knowledge to conquer the world.  Maybe I'll make a cool website.  It's possible I'll even aquire enough knowledge to understand "floats".
-    </p>
-    <p>I like to read, and write, and I'm a huge movie buff.  I like to read, and write, about movies too.  I'm very interested in how scripts are written, how certain 
-        filming techniques communicate ideas and feelings, and the themes that are explored in the background.  With what I've learned, I hope to develop websites and 
-        applications that are entertaining and creative and maybe even informative.
-    </p>
-</div>
-
-<div class="footer"><h6>Copyright&#169;</h6>
-</div>
-
-
-
-
-
-
+    
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./app.js"></script>
+
 </html>
