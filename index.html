@@ -8,51 +8,42 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <title>Train Time</title>
 </head>
 <body>
-<div id="container">
-    <div id="header"><h1>Schedule</h1></div>
-    <div class="container">
+  <div  class="container my-4">
+    <div id="header"class="jumbotron text-center">
+        <h1 class="display-3">Train Schedule</h1>
+        <p class="lead">Running a train on punctuality</p>
+        <hr class="my-4">
+    </div>
+    <div class="card">
+      <div class="card-header text-center">Current Train Schedule</div>
+    <div class="card-body">
     <table class="table" id="train-schedule">
             <thead class="thead-light">
-                    <h3>Current Train Schedule</h3>
               <tr>
                 <th scope="col">Train Name</th>
                 <th scope="col">Destination</th>
                 <th scope="col">Frequency (min)</th>
                 <th scope="col">Next Arrival</th>
                 <th scope="col">Minutes Away</th>
-
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
             </tbody>
-          </table>
+    </table>
     </div>
-    <div class="container">
-    
+    <br>
+    <div class="card">
+      <div class="card-header text-center">
+          Add Train
+      </div>
+      <div class="card-body">  
           <form>
-                <h3 >Add Train </h3>
+                
                 <div class="form-group">
                     <label for="train-name">Train Name</label><br>                  
                     <input type="text" class="form-control" id="train-name" aria-describedby="emailHelp">
@@ -71,6 +62,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary" id="add-button">Submit</button>
               </form>
+        </div>
     </div>
     
               
@@ -78,22 +70,7 @@
         
   
              
-        
-    <!-- <form>
-        <h3 >Add Train </h3>
-        
-        <label for="destination">Destination</label><br>
-        <input type="text" id="destination" name="destination"><br>
-        <label for="first-train-time">First Train Time (HH:mm-Military Time)</label><br>
-        <input type="text" id="first-train-time" name="first-train-time"><br>
-        <label for="Frequency">Frequency (min)</label><br>
-        <input type="text" id="frequency" name="frequency"><br>
-        <input type="submit" id="add-button">
-    
-
-    </form> -->
-
-
+  
 
 </div>
     
