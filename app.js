@@ -19,33 +19,13 @@ var destination= $("#destination").val().trim();
 var firstTrainTime= $("#first-train-time").val().trim();
 var frequency= $("#frequency").val().trim();
 // var addButton= $("#add-button");
+// var newTrain
+
 
 
 event.preventDefault()
-var tBody=$("<tbody>")
-var tData=$("<td>")
-console.log(trainName)
-// tData.html(trainName)
-// tData.append(destination)
-// tData.append(firstTrainTime)
-// tData.append(frequency)
-// tBody.append(tData)
 
 
-
-var newTrain = {
-  trainName1: trainName,
-  destination1: destination,
-  firstTrainTime1: firstTrainTime,
-  frequency1: frequency
-};
-
-database.ref().push(newTrain);
-
-// $("#name-display").text(snapshot.val().name);
-// $("#email-display").text(snapshot.val().email);
-// $("#age-display").text(snapshot.val().age);
-// $("#comment-display").text(snapshot.val().comment);
 var currentTime=moment();
 var trainTimeConversion=moment(firstTrainTime, "HH:mm").subtract(1, "years");
 var newArrival=moment().diff(moment(trainTimeConversion), "minutes")
@@ -53,8 +33,37 @@ var timeRemaining=newArrival % frequency;
 var minutesTillNextTrain=frequency-timeRemaining;
 var nextTrain=moment(moment().add(minutesTillNextTrain, "minutes")).format("HH:mm");
 console.log(nextTrain)
+console.log(minutesTillNextTrain)
 // console.log(newArrival)
 // console.log(trainTimeConversion)
 // console.log(currentTime)
+var newTrain = {
+  trainName1: trainName,
+  destination1: destination,
+  frequency1: frequency,
+  firstTrainTime1: nextTrain,  
+  minutesNextTrain:minutesTillNextTrain
+
+};
+
+$("#train-name").val("")
+$("#destination").val("")
+$("#first-train-time").val("")
+$("#frequency").val("")
+
+database.ref().push(newTrain);
+console.log(newTrain)
+
+
+
+
+database.ref().on("child_added", function(childSnapshot) {
+console.log(childSnapshot.val());
+var tBody=$("<tbody>")
+tBody.append("<tr>" + "<td>" +childSnapshot.val().trainName1+"</td>" + "<td>"+childSnapshot.val().destination1+"</td>" + "<td>"+childSnapshot.val().frequency1+"</td>" + "<td>"+ childSnapshot.val().firstTrainTime1+"</td>"+ "<td>"+childSnapshot.val().minutesNextTrain+"</td>"+ "</tr>");
+$("#train-schedule").append(tBody)
+})
+
+
 })
 
