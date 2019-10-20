@@ -23,7 +23,7 @@ var frequency= $("#frequency").val().trim();
 
 
 
-event.preventDefault()
+event.preventDefault();
 
 
 var currentTime=moment();
@@ -32,11 +32,7 @@ var newArrival=moment().diff(moment(trainTimeConversion), "minutes")
 var timeRemaining=newArrival % frequency;
 var minutesTillNextTrain=frequency-timeRemaining;
 var nextTrain=moment(moment().add(minutesTillNextTrain, "minutes")).format("HH:mm");
-console.log(nextTrain)
-console.log(minutesTillNextTrain)
-// console.log(newArrival)
-// console.log(trainTimeConversion)
-// console.log(currentTime)
+
 var newTrain = {
   trainName1: trainName,
   destination1: destination,
@@ -54,7 +50,7 @@ $("#frequency").val("")
 database.ref().push(newTrain);
 console.log(newTrain)
 
-
+})
 
 
 database.ref().on("child_added", function(childSnapshot) {
@@ -65,5 +61,5 @@ $("#train-schedule").append(tBody)
 })
 
 
-})
+
 
